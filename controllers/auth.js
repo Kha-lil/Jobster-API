@@ -63,18 +63,15 @@ const updateUser = async (req, res) => {
 
   const token = user.createJWT();
 
-  res
-    .status(StatusCodes.OK)
-    .res.status(StatusCodes.CREATED)
-    .json({
-      user: {
-        email: user.email,
-        lastName: user.lastName,
-        location: user.location,
-        name: user.name,
-        token,
-      },
-    });
+  res.status(StatusCodes.CREATED).json({
+    user: {
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      name: user.name,
+      token,
+    },
+  });
 };
 
 module.exports = {
